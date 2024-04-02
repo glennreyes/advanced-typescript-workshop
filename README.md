@@ -1,4 +1,4 @@
-![Advanced TypeScript for React Workshop Banner](banner.png)
+![Advanced TypeScript for React Workshop Banner](https://github.com/glennreyes/advanced-typescript-workshop/assets/5080854/0a655740-65ff-4b71-8c21-7c1765729b47)
 
 # Advanced TypeScript for React Workshop 🚀
 
