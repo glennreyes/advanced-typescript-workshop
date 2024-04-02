@@ -17,9 +17,7 @@ export const Page: FC = () => (
     </Button>
     <div className="space-y-2">
       <H1>Session 2</H1>
-      <Lead>
-        Advanced Component Typing in React and Compound & Polymorphic Components
-      </Lead>
+      <Lead>Advanced Component Typing</Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
       <CardHeader>
