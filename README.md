@@ -1,6 +1,6 @@
-![Advanced TypeScript for React Workshop Banner](https://github.com/glennreyes/advanced-typescript-workshop/assets/5080854/0a655740-65ff-4b71-8c21-7c1765729b47)
+![Advanced TypeScript for React Workshop](https://github.com/glennreyes/advanced-typescript-workshop/assets/5080854/0a655740-65ff-4b71-8c21-7c1765729b47)
 
-# Advanced TypeScript for React Workshop 🚀
+# Advanced TypeScript for React
 
 Welcome to the "Advanced TypeScript for React: Deep Diving into Typing Techniques and Best Practices" workshop! 🌟 This intensive 3-hour session is designed for developers looking to elevate their TypeScript and React skills. Through hands-on exercises 🖐️ and in-depth discussions 💬, you'll explore advanced typing techniques, component patterns, and best practices to enhance your React applications with TypeScript.
 
