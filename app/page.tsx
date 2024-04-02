@@ -2,15 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const RootPage = () => (
-  <div className="flex flex-col items-center justify-around gap-12">
-    <div className="before:bg-gradient-radial after:bg-gradient-conic relative z-[-1] grid place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:lg:h-[360px] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40">
+  <div className="flex flex-col items-center justify-around gap-8">
+    <div className="before:bg-gradient-radial after:bg-gradient-conic relative z-[-1] grid place-items-center gap-12 before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:lg:h-[360px] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40">
       <Image
         alt="Advanced TypeScript for React Logo"
         className="relative rounded-full"
-        height={240}
+        height={160}
         priority
-        src="/logo.png"
-        width={240}
+        src="/icon.png"
+        width={160}
       />
 
       <h1 className="flex flex-col items-center gap-4">
