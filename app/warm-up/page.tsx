@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { H1 } from '@/components/typography/h1';
 import { Lead } from '@/components/typography/lead';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { WarmUp } from '@/exercises/0-warm-up';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -24,11 +24,9 @@ export const Page: FC = () => (
       </Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
-      <CardHeader>
-        <CardContent>
-          <WarmUp />
-        </CardContent>
-      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <WarmUp />
+      </CardContent>
     </Card>
   </div>
 );
