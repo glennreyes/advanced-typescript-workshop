@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "baseUrl": ".",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "extends": "@tsconfig/next/tsconfig",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "*.cjs",
+    "*.mjs",
+    ".*.cjs",
+    ".next/types/**/*.ts"
+  ]
+}
