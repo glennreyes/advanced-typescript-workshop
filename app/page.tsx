@@ -50,7 +50,7 @@ const RootPage = () => (
           </span>
         </h2>
         <p className="m-0 max-w-[30ch] text-sm opacity-50">
-          Discriminated Union Types and Function Component Overload
+          Discriminated Union Props
         </p>
       </Link>
 
@@ -65,7 +65,7 @@ const RootPage = () => (
           </span>
         </h2>
         <p className="m-0 max-w-[30ch] text-sm opacity-50">
-          Advanced Component Typing
+          Compound & Polymorphic Components
         </p>
       </Link>
 
@@ -80,7 +80,7 @@ const RootPage = () => (
           </span>
         </h2>
         <p className="m-0 max-w-[30ch] text-sm opacity-50">
-          Compound & Polymorphic Components
+          Generic Components
         </p>
       </Link>
 
@@ -95,7 +95,7 @@ const RootPage = () => (
           </span>
         </h2>
         <p className="m-0 max-w-[30ch] text-sm opacity-50">
-          TypeScript Safety Tips for React Developers
+          Typing Components Wrapped in forwardRef
         </p>
       </Link>
     </div>

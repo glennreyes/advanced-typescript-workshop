@@ -17,11 +17,11 @@ export const Page: FC = () => (
     </Button>
     <div className="space-y-2">
       <H1>Session 4</H1>
-      <Lead>Compound & Polymorphic Components</Lead>
+      <Lead>Typing Generic Components wrapped in forwardRef</Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
       <CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-col gap-4">
           <Session4 />
         </CardContent>
       </CardHeader>

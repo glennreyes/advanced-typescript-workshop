@@ -17,11 +17,11 @@ export const Page: FC = () => (
     </Button>
     <div className="space-y-2">
       <H1>Session 2</H1>
-      <Lead>Function Component Overloads</Lead>
+      <Lead>Compound & Polymorphic Components</Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
       <CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-col gap-4">
           <Session2 />
         </CardContent>
       </CardHeader>
