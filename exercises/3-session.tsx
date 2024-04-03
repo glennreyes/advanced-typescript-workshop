@@ -1,8 +1,6 @@
 'use client';
 
-import type { FC } from 'react';
-
-import { selectClasses } from '@/components/ui/select';
+import type { FC, ReactNode } from 'react';
 
 const currencies = {
   chf: 'CHF',
@@ -23,18 +21,21 @@ const options = Object.entries(currencies).map(([key, value]) => (
 export const Session3: FC = () => {
   return (
     <>
+      {/* Generic Component: Single value select */}
       <Select
         onValueChange={(value) => {
-          // TODO: Make sure value is a string
+          // TODO: Ensure `value` is typed as a string
           console.log(value);
         }}
       >
         {options}
       </Select>
+
+      {/* Generic Component: Multi value select */}
       <Select
         isMulti
         onValueChange={(values) => {
-          // TODO: Make sure values is an array of strings
+          // TODO: Ensure `values` is typed as an array of strings
           console.log(values);
         }}
       >
@@ -44,10 +45,14 @@ export const Session3: FC = () => {
   );
 };
 
+// TODO: Enhance SelectProps to be generic, accommodating both single and multi-select scenarios.
 interface SelectProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  isMulti?: boolean;
+  // Define a generic type for `onValueChange` to dynamically adjust to `isMulti`
 }
 
-const Select: FC<SelectProps> = ({ children }) => {
-  return <select className={selectClasses}>{children}</select>;
+const Select: FC<SelectProps> = ({ children, isMulti, onValueChange }) => {
+  // TODO: Implement select logic, invoking `onValueChange` with either a string or an array of strings, based on `isMulti`.
+  return <select>{children}</select>;
 };

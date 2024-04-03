@@ -23,10 +23,10 @@ const options = Object.entries(currencies).map(([key, value]) => (
 export const Session4: FC = () => {
   const selectRef = useRef<HTMLSelectElement>(null);
 
-  // TODO
   return (
     <>
       <Select<true> isMulti>{options}</Select>
+      {/* TODO */}
       <GenericSelect<true> ref={selectRef}>{options}</GenericSelect>
     </>
   );
@@ -53,7 +53,6 @@ interface GenericSelectProps<TMulti> {
   isMulti?: TMulti;
 }
 
-// TODO:
 const GenericSelect = forwardRef(function Select<
   TMulti extends boolean = false,
 >({ children, isMulti }: GenericSelectProps<TMulti>) {
