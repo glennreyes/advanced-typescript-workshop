@@ -6,10 +6,10 @@ Welcome to the "Advanced TypeScript for React: Deep Diving into Typing Technique
 
 ## 🎯 Workshop Objectives
 
-- 💡 Understand and apply advanced TypeScript features in React projects.
-- 🛠️ Learn to type complex component patterns including discriminated unions, `forwardRef` components, compound components, and polymorphic components.
-- 🔍 Gain insights into maintaining type safety and avoiding common pitfalls in large-scale React applications.
-- 📈 Enhance productivity and code quality by incorporating TypeScript best practices.
+- 💡 Master advanced TypeScript features to elevate your React projects.
+- 🛠️ Grasp complex typing patterns such as discriminated unions, function component overloads, `forwardRef` with generics, and more.
+- 🎨 Explore the creation and typing of compound and polymorphic components for flexible and reusable code.
+- 🔍 Learn essential TypeScript safety tips to maintain robust type safety across your applications.
 
 ## 📁 Folder Structure
 
@@ -17,28 +17,21 @@ The workshop materials are organized within a Next.js app, adhering to the follo
 
 - 📚 `/exercises`: Contains all exercise files, including one warm-up and four main exercises, each focusing on a specific aspect of advanced TypeScript in React.
 
-### Exercises Overview
+## 📁 Workshop Structure & Highlights
 
-- 🌱 **Warm-up Exercise**: Get comfortable with TypeScript in React by typing a basic component.
-- 🏊‍♂️ **Session 1**: Dive into discriminated union types and function component overloads.
-- 🧗‍♀️ **Session 2**: Master advanced component typing techniques, focusing on `forwardRef` and generics.
-- 🤹‍♂️ **Session 3**: Implement and type a polymorphic component, understanding its advantages over compound components.
-- 🚧 **Session 4**: Learn TypeScript safety tips to avoid common pitfalls and maintain type safety in large applications.
-
-## 📚 Detailed Curriculum
-
-The workshop is structured into a series of sessions, each building on the previous one to deepen your understanding of TypeScript in React:
-
-- 📢 **Introductory Remarks**: Setting the stage for what to expect and how to prepare.
-- 🏁 **Warm-up Exercise**: Enhancing components with standard HTML attribute types.
-- 📝 **Session 1-4**: Each session focuses on a specific set of TypeScript techniques, with hands-on exercises and reviews.
-- 👏 **Closing Remarks**: Summarizing the key takeaways and next steps.
-
-## 🛠 Workshop Requirements
-
-- 🌐 Participants should have an intermediate to advanced understanding of React and TypeScript. Please ensure your development environment includes a code editor (VSCode recommended), Node.js, pnpm, and Git. Also, check that your company's VPN allows downloads from the npm registry.
+- **Introductory Remarks**: Setting the stage with an overview of the workshop's goals and a quick refresher on TypeScript and React basics.
+- **Warm-up Exercise**: Starting off with enhancing components using standard HTML attribute types to get everyone on the same page.
+- **Session Breakdown**:
+  - **Discriminated Union Types**: Dive into the specifics of implementing and leveraging discriminated unions in your components.
+  - **Function Component Overloads**: Understand and apply function component overloads to handle a variety of props more effectively.
+  - **Typing `forwardRef`**: Get hands-on experience with `forwardRef` in generics for more dynamic component creation.
+  - **Compound & Polymorphic Components**: Tackle the intricacies of creating flexible components that can adapt to different needs.
+  - **TypeScript Safety Tips**: Conclude with valuable insights into avoiding common pitfalls and maintaining type safety in your projects.
+- **Closing Remarks**: Wrap up with a summary of key learnings and an open invitation for feedback and further engagement.
 
 ## 🚀 Getting Started
+
+Ready to jump in? Here's how to get set up:
 
 To kick off your advanced TypeScript journey, follow these steps:
 

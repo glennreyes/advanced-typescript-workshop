@@ -17,7 +17,7 @@ export const Page: FC = () => (
     </Button>
     <div className="space-y-2">
       <H1>Session 1</H1>
-      <Lead>Discriminated Union Types and Function Component Overloads.</Lead>
+      <Lead>Discriminated Unions Props</Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
       <CardContent className="flex flex-col gap-4">

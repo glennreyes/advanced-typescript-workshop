@@ -17,7 +17,7 @@ export const Page: FC = () => (
     </Button>
     <div className="space-y-2">
       <H1>Session 4</H1>
-      <Lead>TypeScript Safety Tips for React Developers.</Lead>
+      <Lead>Compound & Polymorphic Components</Lead>
     </div>
     <Card className="flex flex-1 flex-col items-center justify-center">
       <CardHeader>
