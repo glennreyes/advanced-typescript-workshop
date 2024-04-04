@@ -1,4 +1,4 @@
-import type { ElementType, FC, ReactNode } from 'react';
+import type { ElementType, FC, ReactElement, ReactNode } from 'react';
 
 // Assuming these imports are placeholders for your actual component/utility imports
 import { buttonVariants } from '@/components/ui/button';
@@ -8,9 +8,8 @@ export const Session2: FC = () => {
   return (
     <>
       {/* Compound Component Example */}
-      <IconWrapper>
-        <IconDownload size={5} />
-      </IconWrapper>
+      {/* eslint-disable-next-line react/no-children-prop */}
+      <IconWrapper children={<IconDownload size={5} />} />
 
       {/* Polymorphic Component Example */}
       <IconGeneric icon={IconDownload} size={5} />
@@ -29,7 +28,7 @@ export const Session2: FC = () => {
 
 // Compound Component
 interface IconWrapperProps {
-  children: ReactNode;
+  children: ReactElement;
 }
 
 const IconWrapper: FC<IconWrapperProps> = ({ children }) => {
