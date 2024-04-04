@@ -1,8 +1,6 @@
-'use client';
+import type { ReactNode } from 'react';
 
-import { selectClasses } from '@/components/ui/select';
-import { cn } from '@/lib/utils';
-import { type FC, forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 
 const currencies = {
   chf: 'CHF',
@@ -20,20 +18,22 @@ const options = Object.entries(currencies).map(([key, value]) => (
   </option>
 ));
 
-export const Session4: FC = () => {
+export const Session4: React.FC = () => {
   const selectRef = useRef<HTMLSelectElement>(null);
 
   return (
     <>
+      {/* Usage examples with true passed explicitly */}
       <Select<true> isMulti>{options}</Select>
-      {/* TODO */}
-      <GenericSelect<true> ref={selectRef}>{options}</GenericSelect>
+      <GenericSelect<true> isMulti ref={selectRef}>
+        {options}
+      </GenericSelect>
     </>
   );
 };
 
 interface SelectProps<TMulti> {
-  children: React.ReactNode;
+  children: ReactNode;
   isMulti?: TMulti;
 }
 
@@ -41,23 +41,24 @@ function Select<TMulti extends boolean = false>({
   children,
   isMulti,
 }: SelectProps<TMulti>) {
-  return (
-    <select className={cn(selectClasses, 'h-auto')} multiple={isMulti}>
-      {children}
-    </select>
-  );
+  return <select multiple={isMulti}>{children}</select>;
 }
 
-interface GenericSelectProps<TMulti> {
-  children: React.ReactNode;
-  isMulti?: TMulti;
-}
+// Augmenting forwardRef to handle generics
+interface GenericSelectProps<TMulti> extends SelectProps<TMulti> {}
 
-const GenericSelect = forwardRef(function Select<
+const GenericSelect: <TMulti extends boolean = false>(
+  props: GenericSelectProps<TMulti> & {
+    ref?: React.ForwardedRef<HTMLSelectElement>;
+  },
+) => ReactNode = forwardRef(function GenericSelect<
   TMulti extends boolean = false,
->({ children, isMulti }: GenericSelectProps<TMulti>) {
+>(
+  { children, isMulti }: GenericSelectProps<TMulti>,
+  ref: React.ForwardedRef<HTMLSelectElement>,
+) {
   return (
-    <select className={selectClasses} multiple={isMulti}>
+    <select multiple={isMulti} ref={ref}>
       {children}
     </select>
   );

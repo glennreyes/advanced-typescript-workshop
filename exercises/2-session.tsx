@@ -1,22 +1,21 @@
-'use client';
+import type { ElementType, FC, ReactNode } from 'react';
 
-import type { FC } from 'react';
-
+// Assuming these imports are placeholders for your actual component/utility imports
 import { buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const Session2: FC = () => {
   return (
     <>
-      {/* Compound: Use distinct Icon component for a compound example. */}
+      {/* Compound Component Example */}
       <IconWrapper>
         <IconDownload size={5} />
       </IconWrapper>
 
-      {/* Polymorphic: Use distinct Icon component, supporting polymorphism via props. */}
+      {/* Polymorphic Component Example */}
       <IconGeneric icon={IconDownload} size={5} />
 
-      {/* Polymorphic with `as` as discriminant: Adapt Button to change its rendering element based on `as` prop. */}
+      {/* Polymorphic Component with `as` Discriminant */}
       <Button
         onClick={() => {
           console.log('Redirecting...');
@@ -28,37 +27,67 @@ export const Session2: FC = () => {
   );
 };
 
-// TODO: Implement IconWrapper for compound component pattern.
-interface IconWrapperProps {}
+// Compound Component
+interface IconWrapperProps {
+  children: ReactNode;
+}
 
 const IconWrapper: FC<IconWrapperProps> = ({ children }) => {
   return <div>{children}</div>;
 };
 
-// Icon to be used in the compound component pattern.
 interface IconDownloadProps {
   size: number;
 }
 
 const IconDownload: FC<IconDownloadProps> = ({ size }) => {
-  return <svg height={size} width={size} /* SVG props */ />;
+  // Placeholder for an actual SVG or similar icon component
+  return <svg height={size} width={size} /* SVG attributes */ />;
 };
 
-// TODO: Define IconGeneric for polymorphic component usage.
-interface IconGenericProps {}
-
-const IconGeneric: FC<IconGenericProps> = ({ icon, ...props }) => {
-  // Implementation depends on how you decide to render `icon` and pass `props`.
-  return <></>;
-};
-
-// TODO: Adjust ButtonProps to support polymorphic `as` prop for element type change.
-interface ButtonProps {
-  className?: string;
-  // TODO: Add polymorphic 'as' prop and other necessary props here.
+// Polymorphic Component
+interface IconGenericProps {
+  icon: ElementType;
+  size?: number;
 }
 
-const Button: FC<ButtonProps> = ({ className, ...props }) => {
-  // TODO: Implement logic to render different elements based on `as` prop.
-  return <div {...props} className={buttonVariants({ className })} />;
+const IconGeneric: FC<IconGenericProps> = ({
+  icon: IconComponent,
+  size,
+  ...props
+}) => {
+  return <IconComponent size={size} {...props} />;
+};
+
+// Button with polymorphic `as` prop
+type AsProp<C extends React.ComponentType | React.ElementType> = Omit<
+  React.ComponentPropsWithRef<C>,
+  'as'
+> & {
+  as?: C;
+  children?: ReactNode;
+};
+
+type ButtonProps<C extends React.ComponentType | React.ElementType = 'button'> =
+  AsProp<C> & {
+    className?: string;
+  };
+
+const Button = <C extends React.ComponentType | React.ElementType = 'button'>({
+  as, // Default to 'button' element
+  children,
+  className,
+  ...props
+}: ButtonProps<C>) => {
+  const Component = as ?? 'button';
+  // Apply button variants using a utility function
+  const buttonClassName = buttonVariants({ className });
+  // Conditionally rendering the component based on `as` prop
+  // This creates a flexible component that can effectively render as any ElementType or custom component like Link
+
+  return (
+    <Component {...props} className={buttonClassName}>
+      {children}
+    </Component>
+  );
 };

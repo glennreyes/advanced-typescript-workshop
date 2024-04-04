@@ -1,6 +1,4 @@
-'use client';
-
-import type { FC, ReactNode } from 'react';
+import type { ChangeEvent, FC, ReactNode } from 'react';
 
 const currencies = {
   chf: 'CHF',
@@ -21,22 +19,17 @@ const options = Object.entries(currencies).map(([key, value]) => (
 export const Session3: FC = () => {
   return (
     <>
-      {/* Generic Component: Single value select */}
       <Select
         onValueChange={(value) => {
-          // TODO: Ensure `value` is typed as a string
-          console.log(value);
+          console.log(value); // value is string
         }}
       >
         {options}
       </Select>
-
-      {/* Generic Component: Multi value select */}
       <Select
         isMulti
         onValueChange={(values) => {
-          // TODO: Ensure `values` is typed as an array of strings
-          console.log(values);
+          console.log(values); // values is string[]
         }}
       >
         {options}
@@ -45,14 +38,31 @@ export const Session3: FC = () => {
   );
 };
 
-// TODO: Enhance SelectProps to be generic, accommodating both single and multi-select scenarios.
 interface SelectProps {
   children: ReactNode;
   isMulti?: boolean;
-  // Define a generic type for `onValueChange` to dynamically adjust to `isMulti`
+  onValueChange: (value: string[] | string) => void;
 }
 
 const Select: FC<SelectProps> = ({ children, isMulti, onValueChange }) => {
-  // TODO: Implement select logic, invoking `onValueChange` with either a string or an array of strings, based on `isMulti`.
-  return <select>{children}</select>;
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    if (isMulti) {
+      // Safely handle the multi-select scenario with a more specific type assertion
+      const selectedOptions = Array.from(
+        event.target.selectedOptions,
+        (option) => option.value,
+      );
+
+      onValueChange(selectedOptions);
+    } else {
+      // This remains safe as it aligns with the expected single string value
+      onValueChange(event.target.value);
+    }
+  };
+
+  return (
+    <select multiple={isMulti} onChange={handleChange}>
+      {children}
+    </select>
+  );
 };

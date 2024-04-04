@@ -1,5 +1,3 @@
-'use client';
-
 import type { FC } from 'react';
 
 import { X } from '@/components/icons/x';
@@ -27,9 +25,43 @@ export const Session1: FC = () => {
   );
 };
 
-// TODO: Define ButtonProps type for string literal and discriminated union props.
-interface ButtonProps {}
+// Defining ButtonProps type
+interface ButtonVariantProps {
+  children: React.ReactNode;
+  className?: string;
+  variant: 'primary' | 'secondary';
+}
 
-const Button: FC<ButtonProps> = ({ className, ...props }) => {
-  return <button {...props} className={buttonVariants({ className })} />;
+interface ButtonLinkProps {
+  as: 'link';
+  children: React.ReactNode;
+  className?: string;
+  href: string;
+}
+
+interface ButtonClickProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick: () => void;
+}
+
+// Discriminated Union of ButtonProps
+type ButtonProps = ButtonClickProps | ButtonLinkProps | ButtonVariantProps;
+
+const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
+  if ('as' in props) {
+    // Assuming buttonVariants function can handle className for anchor as well
+    return (
+      <a {...props} className={buttonVariants({ className })}>
+        {children}
+      </a>
+    );
+  }
+
+  // Fallback to button for onClick and variant props
+  return (
+    <button {...props} className={buttonVariants({ className })}>
+      {children}
+    </button>
+  );
 };
