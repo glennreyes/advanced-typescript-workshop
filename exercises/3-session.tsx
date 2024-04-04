@@ -26,7 +26,7 @@ export const Session3: FC = () => {
       >
         {options}
       </Select>
-      <Select
+      <Select<true>
         isMulti
         onValueChange={(values) => {
           console.log(values); // values is string[]
@@ -38,13 +38,17 @@ export const Session3: FC = () => {
   );
 };
 
-interface SelectProps {
+interface SelectProps<TMulti extends boolean = false> {
   children: ReactNode;
-  isMulti?: boolean;
-  onValueChange: (value: string[] | string) => void;
+  isMulti?: TMulti;
+  onValueChange: (value: TMulti extends true ? string[] : string) => void;
 }
 
-const Select: FC<SelectProps> = ({ children, isMulti, onValueChange }) => {
+function Select<TMulti extends boolean = false>({
+  children,
+  isMulti,
+  onValueChange,
+}: SelectProps<TMulti>) {
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     if (isMulti) {
       // Safely handle the multi-select scenario with a more specific type assertion
@@ -53,10 +57,10 @@ const Select: FC<SelectProps> = ({ children, isMulti, onValueChange }) => {
         (option) => option.value,
       );
 
-      onValueChange(selectedOptions);
+      onValueChange(selectedOptions as any);
     } else {
       // This remains safe as it aligns with the expected single string value
-      onValueChange(event.target.value);
+      onValueChange(event.target.value as any);
     }
   };
 
@@ -65,4 +69,4 @@ const Select: FC<SelectProps> = ({ children, isMulti, onValueChange }) => {
       {children}
     </select>
   );
-};
+}
