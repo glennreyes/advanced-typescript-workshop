@@ -29,27 +29,24 @@ export const Session1: FC = () => {
 interface ButtonVariantProps {
   children: React.ReactNode;
   className?: string;
-  variant: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary';
 }
 
-interface ButtonLinkProps {
+type ButtonLinkProps = ButtonVariantProps & {
   as: 'link';
-  children: React.ReactNode;
-  className?: string;
-  href: string;
-}
+  href?: string;
+};
 
-interface ButtonClickProps {
-  children: React.ReactNode;
-  className?: string;
-  onClick: () => void;
-}
+type ButtonClickProps = ButtonVariantProps & {
+  as?: 'button';
+  onClick?: () => void;
+};
 
 // Discriminated Union of ButtonProps
-type ButtonProps = ButtonClickProps | ButtonLinkProps | ButtonVariantProps;
+type ButtonProps = ButtonClickProps | ButtonLinkProps;
 
 const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
-  if ('as' in props) {
+  if ('as' in props && props.as === 'link') {
     // Assuming buttonVariants function can handle className for anchor as well
     return (
       <a {...props} className={buttonVariants({ className })}>
