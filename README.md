@@ -56,3 +56,7 @@ Feel free to reach out if you encounter any setup issues or have questions about
 This workshop is interactive and hands-on, emphasizing practical application and problem-solving. We encourage questions, discussions, and feedback throughout the session. Access to a GitHub repository with starter code and solutions will be provided.
 
 Join us in this advanced workshop to refine your TypeScript skills and take your React projects to the next level! 🎉🔥
+
+## 📚 Slides
+
+https://speakerdeck.com/glennreyes/advanced-typescript-for-react
